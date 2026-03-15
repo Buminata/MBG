@@ -1,0 +1,21 @@
+Kategori_Penerima,Status_Gizi,Total_Penerima,Jumlah_Records,Pct
+Anak Sekolah SD,Gizi Baik,1744738,9746,34.13
+Anak Sekolah SD,Gizi Kurang,643240,3573,12.58
+Anak Sekolah SD,Gizi Lebih,219337,1218,4.29
+Anak Sekolah SD,Stunting,525632,2895,10.28
+Anak Sekolah SMP,Gizi Baik,675538,5668,13.22
+Anak Sekolah SMP,Gizi Kurang,241267,2034,4.72
+Anak Sekolah SMP,Gizi Lebih,84459,713,1.65
+Anak Sekolah SMP,Stunting,192140,1605,3.76
+Balita (0-5 tahun),Gizi Baik,315062,7037,6.16
+Balita (0-5 tahun),Gizi Kurang,112744,2523,2.21
+Balita (0-5 tahun),Gizi Lebih,40580,898,0.79
+Balita (0-5 tahun),Stunting,91543,2061,1.79
+Ibu Hamil,Gizi Baik,81472,3338,1.59
+Ibu Hamil,Gizi Kurang,28748,1164,0.56
+Ibu Hamil,Gizi Lebih,10851,449,0.21
+Ibu Hamil,Stunting,24513,1003,0.48
+Ibu Menyusui,Gizi Baik,45013,2309,0.88
+Ibu Menyusui,Gizi Kurang,16255,830,0.32
+Ibu Menyusui,Gizi Lebih,5203,264,0.1
+Ibu Menyusui,Stunting,13366,672,0.26

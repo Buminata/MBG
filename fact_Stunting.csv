@@ -1,0 +1,69 @@
+Provinsi,Tahun,Prevalensi_Stunting_Pct,Jumlah_Balita_Stunting,Total_Balita,Target_Stunting_2025_Pct,Status_Capaian,Latitude,Longitude
+Jawa Barat,2022,20.1,19102,95025,14.5,Dalam Proses,-7.09,107.66
+Jawa Barat,2023,19.51,81756,419052,14.5,Dalam Proses,-7.09,107.66
+Jawa Barat,2024,16.8,75148,447358,14.5,Dalam Proses,-7.09,107.66
+Jawa Barat,2025,16.61,93625,563636,14.5,Dalam Proses,-7.09,107.66
+Jawa Tengah,2022,19.35,101262,523223,13.5,Dalam Proses,-7.15,110.14
+Jawa Tengah,2023,18.22,68564,376286,13.5,Dalam Proses,-7.15,110.14
+Jawa Tengah,2024,14.52,19563,134694,13.5,Tercapai,-7.15,110.14
+Jawa Tengah,2025,14.19,35227,248177,13.5,Tercapai,-7.15,110.14
+Jawa Timur,2022,18.43,20229,109755,12.8,Dalam Proses,-7.54,112.24
+Jawa Timur,2023,16.4,35172,214523,12.8,Dalam Proses,-7.54,112.24
+Jawa Timur,2024,16.92,18456,109081,12.8,Dalam Proses,-7.54,112.24
+Jawa Timur,2025,13.4,53865,401961,12.8,Tercapai,-7.54,112.24
+DKI Jakarta,2022,15.97,95776,599879,8.8,Dalam Proses,-6.21,106.85
+DKI Jakarta,2023,14.88,69429,466662,8.8,Dalam Proses,-6.21,106.85
+DKI Jakarta,2024,12.77,76109,596209,8.8,Dalam Proses,-6.21,106.85
+DKI Jakarta,2025,11.2,41879,373878,8.8,Dalam Proses,-6.21,106.85
+Sumatera Utara,2022,22.17,43575,196567,15.9,Dalam Proses,2.12,99.54
+Sumatera Utara,2023,20.49,105363,514192,15.9,Dalam Proses,2.12,99.54
+Sumatera Utara,2024,19.5,84770,434828,15.9,Dalam Proses,2.12,99.54
+Sumatera Utara,2025,16.24,14508,89341,15.9,Tercapai,2.12,99.54
+Sumatera Selatan,2022,24.27,63646,262254,17.8,Dalam Proses,-3.32,104.91
+Sumatera Selatan,2023,22.89,87994,384466,17.8,Dalam Proses,-3.32,104.91
+Sumatera Selatan,2024,20.78,29185,140465,17.8,Dalam Proses,-3.32,104.91
+Sumatera Selatan,2025,20.13,81822,406437,17.8,Dalam Proses,-3.32,104.91
+Kalimantan Timur,2022,18.78,25138,133889,13.8,Dalam Proses,0.54,116.42
+Kalimantan Timur,2023,19.85,87698,441805,13.8,Dalam Proses,0.54,116.42
+Kalimantan Timur,2024,16.45,25022,152102,13.8,Dalam Proses,0.54,116.42
+Kalimantan Timur,2025,13.77,68957,500945,13.8,Tercapai,0.54,116.42
+Sulawesi Selatan,2022,24.87,29671,119325,18.5,Dalam Proses,-3.67,119.97
+Sulawesi Selatan,2023,25.01,114349,457189,18.5,Dalam Proses,-3.67,119.97
+Sulawesi Selatan,2024,21.85,77081,352728,18.5,Dalam Proses,-3.67,119.97
+Sulawesi Selatan,2025,21.03,43775,208124,18.5,Dalam Proses,-3.67,119.97
+Bali,2022,15.12,49516,327444,9.5,Dalam Proses,-8.34,115.09
+Bali,2023,13.1,26759,204248,9.5,Dalam Proses,-8.34,115.09
+Bali,2024,10.0,58964,589646,9.5,Tercapai,-8.34,115.09
+Bali,2025,11.62,12757,109793,9.5,Dalam Proses,-8.34,115.09
+Papua,2022,36.04,115758,321165,28.9,Dalam Proses,-4.27,138.08
+Papua,2023,32.74,43396,132548,28.9,Dalam Proses,-4.27,138.08
+Papua,2024,31.65,182354,576119,28.9,Dalam Proses,-4.27,138.08
+Papua,2025,28.6,101854,356193,28.9,Tercapai,-4.27,138.08
+Nusa Tenggara Timur,2022,36.21,209360,578236,31.2,Dalam Proses,-8.66,121.08
+Nusa Tenggara Timur,2023,36.87,169586,459919,31.2,Dalam Proses,-8.66,121.08
+Nusa Tenggara Timur,2024,33.32,67566,202773,31.2,Dalam Proses,-8.66,121.08
+Nusa Tenggara Timur,2025,32.57,119638,367326,31.2,Tercapai,-8.66,121.08
+Nusa Tenggara Barat,2022,30.55,64104,209809,25.1,Dalam Proses,-8.65,116.42
+Nusa Tenggara Barat,2023,28.48,161834,568312,25.1,Dalam Proses,-8.65,116.42
+Nusa Tenggara Barat,2024,27.26,138296,507284,25.1,Dalam Proses,-8.65,116.42
+Nusa Tenggara Barat,2025,25.97,62498,240666,25.1,Tercapai,-8.65,116.42
+Aceh,2022,28.16,155484,552182,21.2,Dalam Proses,4.69,96.75
+Aceh,2023,26.56,140001,527161,21.2,Dalam Proses,4.69,96.75
+Aceh,2024,23.69,39668,167422,21.2,Dalam Proses,4.69,96.75
+Aceh,2025,22.89,126136,551061,21.2,Tercapai,4.69,96.75
+Riau,2022,23.59,72372,306760,16.5,Dalam Proses,0.29,101.71
+Riau,2023,20.82,27579,132495,16.5,Dalam Proses,0.29,101.71
+Riau,2024,17.72,32408,182855,16.5,Tercapai,0.29,101.71
+Riau,2025,16.75,56506,337302,16.5,Tercapai,0.29,101.71
+Kalimantan Barat,2022,27.1,24678,91049,20.8,Dalam Proses,0.0,109.34
+Kalimantan Barat,2023,25.98,29126,112116,20.8,Dalam Proses,0.0,109.34
+Kalimantan Barat,2024,23.67,86990,367459,20.8,Dalam Proses,0.0,109.34
+Kalimantan Barat,2025,23.67,105047,443730,20.8,Dalam Proses,0.0,109.34
+Sulawesi Tengah,2022,28.73,91680,319090,23.5,Dalam Proses,-1.43,121.44
+Sulawesi Tengah,2023,28.64,72680,253788,23.5,Dalam Proses,-1.43,121.44
+Sulawesi Tengah,2024,25.52,43087,168841,23.5,Dalam Proses,-1.43,121.44
+Sulawesi Tengah,2025,25.93,89558,345350,23.5,Dalam Proses,-1.43,121.44
+Lampung,2022,22.35,20666,92480,15.5,Dalam Proses,-4.56,105.41
+Lampung,2023,19.4,57647,297173,15.5,Dalam Proses,-4.56,105.41
+Lampung,2024,19.12,47073,246185,15.5,Dalam Proses,-4.56,105.41
+Lampung,2025,16.24,32919,202688,15.5,Tercapai,-4.56,105.41
