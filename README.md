@@ -2,7 +2,7 @@
 
 Dashboard analitik interaktif untuk Program Makan Bergizi Gratis (MBG) Indonesia periode **2024–2026**.
 
-**Live:** [mbg-dashboard.streamlit.app](https://mbg-dashboard.streamlit.app)
+**Live:** [mbg-dashboard.streamlit.app]((https://mbg-indonesia.streamlit.app/))
 
 ---
 
