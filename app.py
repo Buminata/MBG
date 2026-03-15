@@ -1060,34 +1060,62 @@ with tab4:
         st.plotly_chart(fig_r, use_container_width=True, config={"displayModeBar": False})
         st.markdown('</div>', unsafe_allow_html=True)
 
-    st.markdown('<div class="sec-header"><span class="sec-num">02</span><span class="sec-title">Roadmap Infrastruktur Gizi</span></div>', unsafe_allow_html=True)
+    st.markdown('<div class="sec-header"><span class="sec-num">02</span><span class="sec-title">Roadmap Infrastruktur & Lapangan Kerja</span></div>', unsafe_allow_html=True)
     
     col3, col4 = st.columns([3, 2], gap="small")
     
     with col3:
-        st.markdown('<div class="chart-card"><div class="cc-label">Pembangunan Satuan Pelayanan Pemenuhan Gizi (SPPG)<span class="cc-tag">Area</span></div><div class="cc-desc">Target pembangunan unit dapur MBG di seluruh wilayah Indonesia</div>', unsafe_allow_html=True)
-        fig_s = go.Figure(go.Scatter(
-            x=df_road["Year"], y=df_road["SPPG_Units"],
-            mode="lines+markers",
+        st.markdown('<div class="chart-card"><div class="cc-label">Penyerapan Tenaga Kerja Nasional (Juta Orang)<span class="cc-tag">Area</span></div><div class="cc-desc">Dampak ekonomi langsung melalui penciptaan lapangan kerja di SPPG</div>', unsafe_allow_html=True)
+        fig_w = go.Figure(go.Scatter(
+            x=df_road["Year"], y=df_road["Workforce_Millions"],
+            mode="lines+markers+text",
+            text=df_road["Workforce_Millions"].apply(lambda x: f"{x}M"),
+            textposition="top left",
             fill='tozeroy',
-            line=dict(color=C_GREEN, width=3),
-            marker=dict(size=10, color=C_GREEN)
+            line=dict(color=C_AMBER, width=4, shape='spline'),
+            marker=dict(size=10, color=C_AMBER, line=dict(color=PAPER, width=2)),
+            fillcolor="rgba(184,122,16,.1)"
         ))
-        fig_s.update_layout(**base_layout(300, legend=False))
-        st.plotly_chart(fig_s, use_container_width=True, config={"displayModeBar": False})
+        fig_w.update_layout(**base_layout(300, legend=False))
+        fig_w.update_yaxes(ticksuffix="M")
+        st.plotly_chart(fig_w, use_container_width=True, config={"displayModeBar": False})
         st.markdown('</div>', unsafe_allow_html=True)
         
     with col4:
-        st.markdown('<div class="chart-card"><div class="cc-label">Target Strategis 2026</div><div class="cc-desc">Poin utama rencana strategis BGN</div>', unsafe_allow_html=True)
+        st.markdown('<div class="chart-card"><div class="cc-label">Profil Pekerja SPPG</div><div class="cc-desc">Rata-rata 47-50 staf per unit pelayanan</div>', unsafe_allow_html=True)
         st.markdown(f"""
-        <div style="font-size:13px; line-height:1.8; color:#444">
-            <div style="margin-bottom:15px">🔵 <b>Zero Defect Distribution</b><br>Menjamin 100% ketepatan waktu & kualitas nutrisi di setiap Satuan Pelayanan.</div>
-            <div style="margin-bottom:15px">🟢 <b>Local Economy Multiplier</b><br>Pemberdayaan UMKM lokal & petani sebagai pemasok utama bahan baku MBG.</div>
-            <div style="margin-bottom:15px">🔴 <b>Digital Monitoring System</b><br>Pelacakan distribusi harian berbasis QR-code untuk transparansi penuh.</div>
-            <div style="margin-bottom:15px">🟡 <b>Integrasi Data Kesehatan</b><br>Sinkronisasi data MBG dengan sistem SatuSehat untuk monitoring status gizi.</div>
+        <div style="font-size:12px; line-height:1.6; color:#444">
+            <div style="display:flex; justify-content:space-between; border-bottom:1px solid #eee; padding:4px 0">
+                <span>🥗 Ahli Gizi & Akuntan</span><b>4 Staf</b>
+            </div>
+            <div style="display:flex; justify-content:space-between; border-bottom:1px solid #eee; padding:4px 0">
+                <span>👨‍🍳 Juru Masak (Chef)</span><b>6 Staf</b>
+            </div>
+            <div style="display:flex; justify-content:space-between; border-bottom:1px solid #eee; padding:4px 0">
+                <span>🍲 Tenaga Persiapan & Pemorsian</span><b>25 Staf</b>
+            </div>
+            <div style="display:flex; justify-content:space-between; border-bottom:1px solid #eee; padding:4px 0">
+                <span>🚚 Driver Operasional</span><b>5 Staf</b>
+            </div>
+            <div style="display:flex; justify-content:space-between; border-bottom:1px solid #eee; padding:4px 0">
+                <span>🛡️ Keamanan & Kebersihan</span><b>7 Staf</b>
+            </div>
+            <div style="margin-top:12px; font-style:italic; color:{C_BLUE}">
+                *Setiap unit juga melibatkan rata-rata 15 UMKM lokal sebagai pemasok bahan baku.
+            </div>
         </div>
         """, unsafe_allow_html=True)
         st.markdown('</div>', unsafe_allow_html=True)
+
+    st.markdown('<div class="sec-header"><span class="sec-num">03</span><span class="sec-title">Strategi Operasional BGN</span></div>', unsafe_allow_html=True)
+    
+    c1, c2, c3 = st.columns(3, gap="small")
+    with c1:
+        st.markdown('<div class="chart-card"><div class="cc-label">Zero Defect</div><div style="font-size:13px; color:#666">Distribusi 100% tepat waktu & kualitas nutrisi terjamin.</div></div>', unsafe_allow_html=True)
+    with c2:
+        st.markdown('<div class="chart-card"><div class="cc-label">Local Economy</div><div style="font-size:13px; color:#666">Pemberdayaan UMKM & petani sebagai pemasok utama.</div></div>', unsafe_allow_html=True)
+    with c3:
+        st.markdown('<div class="chart-card"><div class="cc-label">Digital Monitoring</div><div style="font-size:13px; color:#666">Pelacakan harian berbasis QR-code & SatuSehat.</div></div>', unsafe_allow_html=True)
 
 
 # ── FOOTER ───────────────────────────────────────────────────────────────────
