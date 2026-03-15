@@ -328,9 +328,10 @@ def load_data():
     df_smon  = pd.read_csv("agg_Sentiment_Monthly.csv").sort_values("YearMonth")
     df_cat   = pd.read_csv("agg_Category.csv")
     df_dim   = pd.read_csv("dim_Province.csv")
-    return df_mbg, df_sent, df_stunt, df_prov, df_mon, df_smon, df_cat, df_dim
+    df_road  = pd.read_csv("bgn_roadmap.csv")
+    return df_mbg, df_sent, df_stunt, df_prov, df_mon, df_smon, df_cat, df_dim, df_road
 
-df_mbg, df_sent, df_stunt, df_prov, df_mon, df_smon, df_cat, df_dim = load_data()
+df_mbg, df_sent, df_stunt, df_prov, df_mon, df_smon, df_cat, df_dim, df_road = load_data()
 
 # ── PLOTLY THEME ─────────────────────────────────────────────────────────────
 PAPER   = "#F4F1EA"
@@ -393,10 +394,11 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ── TABS ─────────────────────────────────────────────────────────────────────
-tab1, tab2, tab3 = st.tabs([
+tab1, tab2, tab3, tab4 = st.tabs([
     "Executive Overview",
     "Regional Insights",
-    "Sentiment Analysis"
+    "Sentiment Analysis",
+    "Strategic Roadmap 2026"
 ])
 
 # ════════════════════════════════════════════════════════
@@ -973,13 +975,128 @@ with tab3:
         st.markdown('</div>', unsafe_allow_html=True)
 
 
+# ════════════════════════════════════════════════════════
+# PAGE 4 — STRATEGIC ROADMAP
+# ════════════════════════════════════════════════════════
+with tab4:
+
+    # BGN Header
+    st.markdown("""
+    <div style="background:#0E0E0E; padding:40px; border-bottom:2px solid #222; margin-bottom:0">
+        <div style="font-family:'Geist Mono',monospace; font-size:12px; color:#5CDB6A; margin-bottom:12px">TARGET BADAN GIZI NASIONAL (BGN)</div>
+        <div style="font-family:'Instrument Serif',serif; font-size:36px; color:#F4F1EA; line-height:1.2">
+            Visi Indonesia Emas 2045:<br>Transformasi Gizi & SDM Melalui Program MBG
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Road Map KPIs
+    col_a, col_b, col_c, col_d = st.columns(4, gap="small")
+    
+    with col_a:
+        st.markdown(f"""
+        <div class="sent-box" style="border-right:1px solid #D4CFC4; border-bottom:1px solid #D4CFC4">
+            <div class="sb-label">Anggaran 2026</div>
+            <div class="sb-num" style="color:{C_AMBER}">Rp 335T</div>
+            <div class="sb-sub">Naik dari Rp 71T (2025)</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col_b:
+        st.markdown(f"""
+        <div class="sent-box" style="border-right:1px solid #D4CFC4; border-bottom:1px solid #D4CFC4">
+            <div class="sb-label">Target Penerima</div>
+            <div class="sb-num" style="color:{C_BLUE}">82.9M</div>
+            <div class="sb-sub">Cakupan nasional 2026</div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+    with col_c:
+        st.markdown(f"""
+        <div class="sent-box" style="border-right:1px solid #D4CFC4; border-bottom:1px solid #D4CFC4">
+            <div class="sb-label">Satuan Pelayanan</div>
+            <div class="sb-num" style="color:{C_GREEN}">33,000</div>
+            <div class="sb-sub">SPPG / Dapur MBG</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with col_d:
+        st.markdown(f"""
+        <div class="sent-box" style="border-bottom:1px solid #D4CFC4">
+            <div class="sb-label">Target Stunting</div>
+            <div class="sb-num" style="color:{C_RED}">14%</div>
+            <div class="sb-sub">Sesuai RPJMN 2024-2029</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.markdown('<div class="sec-header"><span class="sec-num">01</span><span class="sec-title">Proyeksi Eskalasi Program</span></div>', unsafe_allow_html=True)
+
+    col1, col2 = st.columns(2, gap="small")
+
+    with col1:
+        st.markdown('<div class="chart-card"><div class="cc-label">Lonjakan Anggaran MBG (Triliun Rp)<span class="cc-tag">Bar</span></div><div class="cc-desc">Eskalasi komitmen fiskal pemerintah untuk program gizi nasional</div>', unsafe_allow_html=True)
+        fig_b = go.Figure(go.Bar(
+            x=df_road["Year"], y=df_road["Budget_Trillion"],
+            text=df_road["Budget_Trillion"].apply(lambda x: f"Rp {x}T"),
+            textposition="auto",
+            marker=dict(color=[C_SLATE, C_AMBER, C_RED], line=dict(width=0))
+        ))
+        fig_b.update_layout(**base_layout(320, legend=False))
+        st.plotly_chart(fig_b, use_container_width=True, config={"displayModeBar": False})
+        st.markdown('</div>', unsafe_allow_html=True)
+
+    with col2:
+        st.markdown('<div class="chart-card"><div class="cc-label">Rencana Ekspansi Penerima (Juta Orang)<span class="cc-tag">Line</span></div><div class="cc-desc">Target cakupan penerima manfaat hingga akhir 2026</div>', unsafe_allow_html=True)
+        fig_r = go.Figure(go.Scatter(
+            x=df_road["Year"], y=df_road["Recipients_Millions"],
+            mode="lines+markers+text",
+            text=df_road["Recipients_Millions"].apply(lambda x: f"{x}M"),
+            textposition="top center",
+            line=dict(color=C_BLUE, width=4, shape='spline'),
+            marker=dict(size=12, color=C_BLUE, line=dict(color=PAPER, width=3)),
+            fill="tozeroy", fillcolor="rgba(26,60,143,.1)"
+        ))
+        fig_r.update_layout(**base_layout(320, legend=False))
+        st.plotly_chart(fig_r, use_container_width=True, config={"displayModeBar": False})
+        st.markdown('</div>', unsafe_allow_html=True)
+
+    st.markdown('<div class="sec-header"><span class="sec-num">02</span><span class="sec-title">Roadmap Infrastruktur Gizi</span></div>', unsafe_allow_html=True)
+    
+    col3, col4 = st.columns([3, 2], gap="small")
+    
+    with col3:
+        st.markdown('<div class="chart-card"><div class="cc-label">Pembangunan Satuan Pelayanan Pemenuhan Gizi (SPPG)<span class="cc-tag">Area</span></div><div class="cc-desc">Target pembangunan unit dapur MBG di seluruh wilayah Indonesia</div>', unsafe_allow_html=True)
+        fig_s = go.Figure(go.Scatter(
+            x=df_road["Year"], y=df_road["SPPG_Units"],
+            mode="lines+markers",
+            fill='tozeroy',
+            line=dict(color=C_GREEN, width=3),
+            marker=dict(size=10, color=C_GREEN)
+        ))
+        fig_s.update_layout(**base_layout(300, legend=False))
+        st.plotly_chart(fig_s, use_container_width=True, config={"displayModeBar": False})
+        st.markdown('</div>', unsafe_allow_html=True)
+        
+    with col4:
+        st.markdown('<div class="chart-card"><div class="cc-label">Target Strategis 2026</div><div class="cc-desc">Poin utama rencana strategis BGN</div>', unsafe_allow_html=True)
+        st.markdown(f"""
+        <div style="font-size:13px; line-height:1.8; color:#444">
+            <div style="margin-bottom:15px">🔵 <b>Zero Defect Distribution</b><br>Menjamin 100% ketepatan waktu & kualitas nutrisi di setiap Satuan Pelayanan.</div>
+            <div style="margin-bottom:15px">🟢 <b>Local Economy Multiplier</b><br>Pemberdayaan UMKM lokal & petani sebagai pemasok utama bahan baku MBG.</div>
+            <div style="margin-bottom:15px">🔴 <b>Digital Monitoring System</b><br>Pelacakan distribusi harian berbasis QR-code untuk transparansi penuh.</div>
+            <div style="margin-bottom:15px">🟡 <b>Integrasi Data Kesehatan</b><br>Sinkronisasi data MBG dengan sistem SatuSehat untuk monitoring status gizi.</div>
+        </div>
+        """, unsafe_allow_html=True)
+        st.markdown('</div>', unsafe_allow_html=True)
+
+
 # ── FOOTER ───────────────────────────────────────────────────────────────────
 st.markdown("""
 <div style="background:#0E0E0E;color:#555;padding:20px 40px;
   display:flex;justify-content:space-between;align-items:center;
   font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.06em;margin-top:40px">
-  <span>MBG DASHBOARD · DATA ANALITIK PROGRAM GIZI NASIONAL · 2024–2025</span>
+  <span>MBG DASHBOARD · STRATEGIC DATA 2024–2026 · BADAN GIZI NASIONAL</span>
   <span style="color:#F4F1EA;font-family:'Instrument Serif',serif;font-style:italic;font-size:13px">bumimataharisenja</span>
-  <span>BUILT WITH STREAMLIT & PLOTLY · 50,000+ RECORDS</span>
+  <span>BUILT WITH STREAMLIT & PLOTLY · 2024-2026 ROADMAP INCLUDED</span>
 </div>
 """, unsafe_allow_html=True)
