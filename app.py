@@ -329,6 +329,7 @@ def load_data():
     df_cat   = pd.read_csv("agg_Category.csv")
     df_dim   = pd.read_csv("dim_Province.csv")
     df_road  = pd.read_csv("bgn_roadmap.csv")
+    df_road.columns = df_road.columns.str.strip()
     return df_mbg, df_sent, df_stunt, df_prov, df_mon, df_smon, df_cat, df_dim, df_road
 
 df_mbg, df_sent, df_stunt, df_prov, df_mon, df_smon, df_cat, df_dim, df_road = load_data()
@@ -339,6 +340,7 @@ PLOT_BG = "#F4F1EA"
 GRID    = "#E4DFD4"
 INK     = "#1A1A1A"
 INK3    = "#888888"
+INK2    = "#555555"
 RULE    = "#D4CFC4"
 
 C_BLUE   = "#1A3C8F"
@@ -350,28 +352,28 @@ PALETTE  = [C_BLUE, C_GREEN, C_RED, C_AMBER, C_SLATE,
             "#6B4C9A", "#1A6B7A", "#8B3A2A", "#2A6B4A", "#8B7A1A"]
 
 def base_layout(height=340, legend=True, margin=None):
-    m = margin or dict(l=20, r=20, t=20, b=50)
-    return dict(
-        height=height, paper_bgcolor=PAPER, plot_bgcolor=PLOT_BG,
-        font=dict(family="Geist, sans-serif", size=13, color=INK),
-        showlegend=legend,
-        legend=dict(orientation="h", yanchor="bottom", y=-0.28,
-                    xanchor="center", x=0.5, font=dict(size=11),
-                    bgcolor="rgba(0,0,0,0)", borderwidth=0),
-        margin=m,
-        xaxis=dict(gridcolor=GRID, linecolor=RULE, tickfont=dict(size=11, color=INK3),
-                   zeroline=False, automargin=True),
-        yaxis=dict(gridcolor=GRID, linecolor=RULE, tickfont=dict(size=11, color=INK3),
-                   zeroline=False, automargin=True),
-    )
+    m = margin or {"l": 20, "r": 20, "t": 20, "b": 50}
+    return {
+        "height": height, "paper_bgcolor": PAPER, "plot_bgcolor": PLOT_BG,
+        "font": {"family": "Geist, sans-serif", "size": 13, "color": INK},
+        "showlegend": legend,
+        "legend": {"orientation": "h", "yanchor": "bottom", "y": -0.28,
+                    "xanchor": "center", "x": 0.5, "font": {"size": 11},
+                    "bgcolor": "rgba(0,0,0,0)", "borderwidth": 0},
+        "margin": m,
+        "xaxis": {"gridcolor": GRID, "linecolor": RULE, "tickfont": {"size": 11, "color": INK3},
+                   "zeroline": False, "automargin": True},
+        "yaxis": {"gridcolor": GRID, "linecolor": RULE, "tickfont": {"size": 11, "color": INK3},
+                   "zeroline": False, "automargin": True},
+    }
 
 # ── COMPUTED METRICS ─────────────────────────────────────────────────────────
 total_p    = int(df_mbg["Jumlah_Penerima"].sum())
 total_prov = int(df_mbg["Provinsi"].nunique())
-pct_stunt  = round((df_mbg["Status_Gizi"] == "Stunting").mean() * 100, 1)
-pct_gizi   = round((df_mbg["Status_Gizi"] == "Gizi Baik").mean() * 100, 1)
-pct_pos    = round((df_sent["Sentimen"] == "Positif").mean() * 100, 1)
-pct_neg    = round((df_sent["Sentimen"] == "Negatif").mean() * 100, 1)
+pct_stunt  = round((df_mbg["Status_Gizi"] == "Stunting").astype(int).mean() * 100, 1)
+pct_gizi   = round((df_mbg["Status_Gizi"] == "Gizi Baik").astype(int).mean() * 100, 1)
+pct_pos    = round((df_sent["Sentimen"] == "Positif").astype(int).mean() * 100, 1)
+pct_neg    = round((df_sent["Sentimen"] == "Negatif").astype(int).mean() * 100, 1)
 pct_net    = round(100 - pct_pos - pct_neg, 1)
 total_tw   = len(df_sent)
 df_prov_s  = df_prov.sort_values("Total_Penerima", ascending=False).reset_index(drop=True)
@@ -384,7 +386,7 @@ avg_growth = df_mon["Growth_Pct"].mean()
 st.markdown("""
 <div class="masthead">
   <span class="masthead-side">KEMENTERIAN KESEHATAN RI · DATA ANALYTICS</span>
-  <span class="masthead-center">Program Makan Bergizi Gratis — Laporan Analitik 2024–2025</span>
+  <span class="masthead-center">Program Makan Bergizi Gratis — Laporan Analitik 2024–2026</span>
   <span class="masthead-side" style="text-align:right;display:flex;gap:20px;align-items:center">
     <span class="live-pill">● LIVE DATA</span>
     <span>50,000+ RECORDS</span>
@@ -412,7 +414,7 @@ with tab1:
       <div class="hero-kpi">
         <div class="hk-label">Total Penerima MBG</div>
         <div class="hk-val" style="color:#5A9EF8">{total_p:,}</div>
-        <div class="hk-sub">Jan 2024 – Jun 2025</div>
+        <div class="hk-sub">Jan 2024 – Des 2026</div>
         <span class="hk-delta delta-up">↑ {avg_growth:.1f}% Avg. MoM</span>
       </div>
       <div class="hero-kpi">
@@ -491,7 +493,7 @@ with tab1:
     col1, col2 = st.columns([3, 2], gap="small")
 
     with col1:
-        st.markdown('<div class="chart-card"><div class="cc-label">Tren Penerima per Bulan<span class="cc-tag">Line</span></div><div class="cc-desc">Total penerima bulanan Jan 2024 – Jun 2025 · termasuk MoM growth</div>', unsafe_allow_html=True)
+        st.markdown('<div class="chart-card"><div class="cc-label">Tren Penerima per Bulan<span class="cc-tag">Line</span></div><div class="cc-desc">Total penerima bulanan Jan 2024 – Des 2026 · termasuk MoM growth</div>', unsafe_allow_html=True)
         mon_labels = [str(x)[:7] for x in df_mon["YearMonth"].tolist()]
         fig_line = go.Figure()
         fig_line.add_trace(go.Scatter(
@@ -798,22 +800,22 @@ with tab3:
       <div class="sent-box">
         <div class="sb-label">Total Komentar</div>
         <div class="sb-num" style="color:{C_BLUE}">{total_tw:,}</div>
-        <div class="sb-sub">5 platform · Jan 2024–Jun 2025</div>
+        <div class="sb-sub">5 platform · Jan 2024–Des 2026</div>
       </div>
       <div class="sent-box">
         <div class="sb-label">Sentimen Positif</div>
         <div class="sb-num" style="color:{C_GREEN}">{pct_pos}%</div>
-        <div class="sb-sub">4,275 komentar · tren naik</div>
+        <div class="sb-sub">{int(total_tw*pct_pos/100):,} komentar · tren naik</div>
       </div>
       <div class="sent-box">
         <div class="sb-label">Sentimen Netral</div>
         <div class="sb-num" style="color:{C_AMBER}">{pct_net}%</div>
-        <div class="sb-sub">3,603 komentar</div>
+        <div class="sb-sub">{int(total_tw*pct_net/100):,} komentar</div>
       </div>
       <div class="sent-box">
         <div class="sb-label">Sentimen Negatif</div>
         <div class="sb-num" style="color:{C_RED}">{pct_neg}%</div>
-        <div class="sb-sub">2,122 komentar · tren turun</div>
+        <div class="sb-sub">{int(total_tw*pct_neg/100):,} komentar · tren turun</div>
       </div>
     </div>
     """, unsafe_allow_html=True)
