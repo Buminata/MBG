@@ -2,36 +2,49 @@
 
 Dashboard analitik interaktif untuk Program Makan Bergizi Gratis (MBG) Indonesia periode **2024–2026**.
 
-**Live:** ((https://mbg-indonesia.streamlit.app/))
+**Live:** [mbg-indonesia.streamlit.app](https://mbg-indonesia.streamlit.app)
+
+---
+
+## 🖼️ Preview Dashboard
+
+### 📊 Executive Overview
+
+Dashboard utama yang memberikan ringkasan KPI strategis nasional, tren pertumbuhan bulanan, dan komposisi penerima berdasarkan kategori serta status gizi.
+![Executive Overview 1](screenshots/overview_1.png)
+![Executive Overview 2](screenshots/overview_2.png)
+![Executive Overview 3](screenshots/overview_3.png)
+
+### 🗺️ Regional Insights
+
+Analisis mendalam per provinsi yang mencakup pemetaan stunting, ranking daerah, dan korelasi antara jumlah penerima dengan target prevalensi stunting.
+![Regional Insights 1](screenshots/regional_1.png)
+![Regional Insights 2](screenshots/regional_2.png)
+![Regional Insights 3](screenshots/regional_3.png)
+
+### 🎭 Sentiment Analysis
+
+Monitoring persepsi publik melalui data media sosial dengan visualisasi tren sentimen, distribusi platform, dan topik utama (Word Cloud).
+![Sentiment Analysis 1](screenshots/sentiment_1.png)
+![Sentiment Analysis 2](screenshots/sentiment_2.png)
+![Sentiment Analysis 3](screenshots/sentiment_3.png)
+
+### 🚀 Strategic Roadmap 2026
+
+Visi jangka menengah Program MBG yang merumuskan ekskalasi anggaran, target penerima 82.9 Juta, dan penciptaan lapangan kerja secara masif.
+![Strategic Roadmap 1](screenshots/roadmap_1.png)
+![Strategic Roadmap 2](screenshots/roadmap_2.png)
+![Strategic Roadmap 3](screenshots/roadmap_3.png)
 
 ---
 
 ## Fitur Utama
 
-### 📊 Executive Overview
+### 📊 KPI Strategis
 
-- **5 KPI Utama**: Total penerima (80M+), cakupan provinsi, prevalensi stunting, sentimen publik, dan status gizi baik.
-- **Tren Bulanan**: Visualisasi pertumbuhan penerima dari Januari 2024 hingga **Desember 2026**.
-- **Analisis Kategori**: Breakdown berdasarkan kategori penerima, sumber dana, dan status gizi.
-
-### 🗺️ Regional Insights
-
-- **Top 15 Provinsi**: Grafik batang horizontal dengan kode warna tingkat stunting.
-- **Peta Distribusi**: Analisis per pulau dan korelasi jumlah penerima terhadap target stunting nasional (14%).
-- **Capaian Target**: Monitoring progres setiap wilayah terhadap parameter keberhasilan program.
-
-### 🎭 Sentiment Analysis
-
-- **KPI Sentimen**: Monitoring volume komentar positif, netral, dan negatif di 5 platform utama.
-- **Tren Sentimen**: Proyeksi pertumbuhan sentimen positif hingga 71% di tahun 2026.
-- **NLP Visuals**: Word Cloud dan Radar Chart untuk dimensi topik pembicaraan publik.
-
-### 🚀 Strategic Roadmap 2026 (New)
-
-- **Proyeksi Anggaran**: Visualisasi peningkatan anggaran dari Rp 6.7T (2024) ke Rp 335T (2026).
-- **Target Penerima**: Skalabilitas program menuju target 82.9 Juta penerima.
-- **Workforce Expansion**: Penyerapan tenaga kerja nasional hingga 1.55 Juta orang melalui SPPG.
-- **Unit Pelayanan**: Pembangunan 33,000 unit Satuan Pelayanan Makan Bergizi (SPPG).
+- **Total Penerima (90M+)**: Monitoring real-time distribusi pangan.
+- **Prevalensi Stunting**: Target penurunan agresif menuju 14%.
+- **Sentimen Positif**: Tracking persepsi publik terhadap implementasi program.
 
 ---
 
